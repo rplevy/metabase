@@ -12,7 +12,9 @@ driver:
     - merge:
         - port
         - default: 9200
-    - user
+    - merge:
+      - user
+      - default: elastic
     - password
 init:
   - step: load-namespace
