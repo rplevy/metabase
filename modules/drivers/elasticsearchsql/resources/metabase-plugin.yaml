@@ -6,19 +6,15 @@ driver:
   name: elasticsearchsql
   display-name: Elasticsearch SQL
   lazy-load: true
-  parent: sql-jdbc
   connection-properties:
     - host
     - merge:
         - port
         - default: 9200
-    - merge:
-      - user
-      - default: elastic
-    - password
+    # - merge:
+    #   - user
+    #   - default: elastic
+    # - password
 init:
   - step: load-namespace
     namespace: metabase.driver.elasticsearchsql
-  - step: register-jdbc-driver
-    class: me.geso.elasticsearch.unofficial.jdbc.driver
-    #class: org.elasticsearch.xpack.sql.jdbc.jdbc.JdbcDriver
